@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.mainWrapper {
+  height: 100vh;
+  background-image: url(../Login/images/bg.png);
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signInHeading {
+  text-align: center;
+  color: white;
+}
+.emailInput,
+.passwordInput {
+  background-color: transparent;
+  color: white;
+  padding: 15px;
+  margin: 5px;
+  width: 100% !important;
+  font-size: 20px;
+  outline: none;
+  border: 1px solid white;
+}
+::placeholder {
+  color: white;
+}
+.container {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.signInBtn {
+  padding: 15px;
+  outline: none 0px;
+  font-size: 20px;
+  background-color: #28a745;
+  border-radius: 5px;
+  color: white;
+}
+/* Media Querries */
+@media (max-width: 425px) {
+  .signInHeading {
+    font-size: 25px;
+  }
+}
+@media (max-width: 360px) {
+  .signInHeading {
+    font-size: 20px;
+  }
+  .signInBtn {
+    padding: 10px;
+    font-size: 15px;
+  }
+  .emailInput,
+.passwordInput {
+  font-size: 15px;
+
+}
+}

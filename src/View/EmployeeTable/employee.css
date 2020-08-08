@@ -1,0 +1,24 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  .mainWrapperEmployee {
+    height: 100vh;
+    background-image: url(../EmployeeTable/Images/mixgreen.jpg);
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .floatingButton{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 25px!important;
+    color: white;
+    outline: none !important;
+    
+    
+  }

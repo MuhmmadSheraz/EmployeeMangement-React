@@ -1,11 +1,26 @@
 import React, { useState } from "react";
 import swal from "sweetalert";
 import "../Login/login.css";
-
 function Login() {
-  const [email, setEmail] = useState("");
-  const [passWord, setPassWord] = useState("");
-
+    const [email, setEmail] = useState("");
+    const [passWord, setPassWord] = useState("");
+    
+    let signIn = () => {
+      if (email == "admin@domain.com" && passWord == "admin") {
+        swal({
+          title: "Signed In Successfully",
+          icon: "success",
+        });
+        console.log("Email======>", email);
+        console.log("Password======>", passWord);
+      } else {
+        swal({
+          title: "Wrong Credentials",
+          icon: "error",
+        });
+      }
+      
+    };
   let updateEmail = (e) => {
     let currentValue = e.target.value;
     setEmail(currentValue);
@@ -14,27 +29,12 @@ function Login() {
     let currentValue = e.target.value;
     setPassWord(currentValue);
   };
-  let signIn = () => {
-    if (email == "admin@domain.com" && passWord == "admin") {
-      swal({
-        title: "Signed In Successfully",
-        icon: "success",
-      });
-      console.log("Email======>", email);
-      console.log("Password======>", passWord);
-    }
-    else{
-        swal({
-            title: "Wrong Credentials",
-            icon: "error",
-          });
-    }
-  };
+
   return (
     <div className="mainWrapper">
-      <div className="container">
+      <div className="container1">
         <h1 className="signInHeading">Sign In Here</h1>
-        <br />
+
         <input
           className="emailInput"
           type="email"

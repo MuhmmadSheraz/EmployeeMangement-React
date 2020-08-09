@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import UpdateBtn from "../../Components/UpdateButton";
 import "./form.css";
 function FormEmployee(props) {
-  
+  const [updateBtn, setUpdateBtn] = useState("");
   const [name, setName] = useState("");
-  const [lastname, setLastName] = useState("");
+  const [lastname, setLastName] = useState("han bj");
   const [email, setEmail] = useState("");
   const [salary, setSalary] = useState("");
   const [date, setDate] = useState("");
@@ -18,7 +19,6 @@ function FormEmployee(props) {
   let inpLastName = (e) => {
     let input = e.target.value;
     setLastName(input);
-    
   };
   let inpEmail = (e) => {
     let input = e.target.value;
@@ -30,15 +30,15 @@ function FormEmployee(props) {
   };
   let inpDate = (e) => {
     let input = e.target.value;
-    console.log(input);
-    setDate(date);
+    // console.log(input);
+    setDate(input);
   };
 
   return (
     <div className="mainWrapperForm">
       <div className="container Form_Content ">
         <h1 className="text-center text-light mb-4">Add Employee Data</h1>
-        <Form>
+        <Form onSubmit={e => e.preventDefault()}>
           <Form.Group controlId="firstName">
             <Form.Label className="text-light">First Name</Form.Label>
             <Form.Control
@@ -53,6 +53,7 @@ function FormEmployee(props) {
               type="text"
               placeholder="Enter Last Name"
               onChange={inpLastName}
+              value="han bhai kaisa dia"
             />
           </Form.Group>
           <Form.Group controlId="email">
@@ -73,18 +74,31 @@ function FormEmployee(props) {
           </Form.Group>
           <Form.Group controlId="currentDate">
             <Form.Label className="text-light">Job Start Date</Form.Label>
-            <Form.Control type="date" placeholder="Enter Date" />
+            <Form.Control
+              type="date"
+              placeholder="Enter Date"
+              onChange={inpDate}
+            />
           </Form.Group>
-
-          {/* <Button variant="success" onClick={()=>showData({name,lastname,email,salary,date})}>Submit</Button> */}
-          <Button
+          {props.isUpdatable ? (
+            <Button
             variant="success"
             onClick={() =>
-              props.renderDashbaord({ name, lastname, email, salary, date })
+              props.updateData({ name, lastname, email, salary, date })
             }
           >
-            Submit
-          </Button>
+            Update
+            </Button>
+          ) : (
+            <Button
+              variant="success"
+              onClick={() =>
+                props.renderDashbaord({ name, lastname, email, salary, date })
+              }
+            >
+              Submit
+            </Button>
+          )}
         </Form>
       </div>
     </div>

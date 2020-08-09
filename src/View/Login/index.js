@@ -24,7 +24,7 @@ function Login(props) {
           type="email"
           placeholder="Enter Email"
           onChange={updateEmail}
-          // value="admin@domain.com"
+          
         />
         <br />
         <input
@@ -32,7 +32,7 @@ function Login(props) {
           type="passoword"
           placeholder="Enter PassWord"
           onChange={updatePassword}
-          // value="admin"
+          
         />
         <br />
         <button
